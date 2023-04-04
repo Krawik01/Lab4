@@ -17,9 +17,14 @@ def prime(*liczby):
 
 def is_prime(*numb):
     for n in numb:
+        if n < 2:
+            continue
+        is_prime = True
         for i in range(2, int(math.sqrt(n)) + 1):
-            if (n % i) != 0:
-                print(n, "is a prime")
+            if n % i == 0:
+                is_prime = False
+                break
+        if is_prime:
+            print(n, "is a prime")
 
-
-is_prime(1, 3, 5, 6)
+is_prime(1, 2, 5, 7)
